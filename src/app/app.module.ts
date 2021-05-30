@@ -1,3 +1,5 @@
+import { userReducer } from './reducers/user.reducer';
+import { animalReducer } from './reducers/animals.reducer';
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,6 +19,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,14 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    // NgRx
+    StoreModule.forRoot({
+      animals: animalReducer,
+      user: userReducer
+    }),
+    EffectsModule.forRoot([
+    ]),
+    StoreDevtoolsModule.instrument(),
     // Angular Material
     MatToolbarModule,
     MatIconModule,
