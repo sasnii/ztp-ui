@@ -1,3 +1,5 @@
-<app-animal-card></app-animal-card>
-<app-animal-card></app-animal-card>
-<app-animal-card></app-animal-card>
+<div fxLayout="row wrap" style="display: inline-block">
+  <div fxFlex="25%" *ngFor="let animal of animals$ | async">
+    <app-animal-card [animal]="animal"></app-animal-card>
+  </div>
+</div>
