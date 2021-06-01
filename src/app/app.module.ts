@@ -27,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AnimalsListComponent } from './components/admin-panel/animals-list/animals-list.component';
 import { AddAnimalFormComponent } from './components/admin-panel/add-animal-form/add-animal-form.component';
 
@@ -67,7 +68,8 @@ import { AddAnimalFormComponent } from './components/admin-panel/add-animal-form
     MatInputModule,
     MatProgressSpinnerModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

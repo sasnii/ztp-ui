@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Animal } from 'src/app/models/animal';
 import { Store } from '@ngrx/store';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-animal-form',
@@ -14,7 +15,7 @@ export class AddAnimalFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private store: Store<AppState>) {
+  constructor(private fb: FormBuilder, private store: Store<AppState>, private snackBar: MatSnackBar) {
     this.form = this.fb.group({
       name: [''],
       description: [''],
@@ -35,6 +36,7 @@ export class AddAnimalFormComponent implements OnInit {
         this.store.dispatch(addAnimal({animal: body}));
     } else {
       console.error('Wrong values');
+      this.snackBar.open('Wrong values', 'Error');
     }
   }
 
