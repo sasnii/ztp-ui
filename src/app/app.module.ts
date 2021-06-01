@@ -12,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { AnimalsListComponent } from './components/admin-panel/animals-list/animals-list.component';
+import { AddAnimalFormComponent } from './components/admin-panel/add-animal-form/add-animal-form.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -27,10 +29,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { AnimalsListComponent } from './components/admin-panel/animals-list/animals-list.component';
-import { AddAnimalFormComponent } from './components/admin-panel/add-animal-form/add-animal-form.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -69,7 +69,8 @@ import { AddAnimalFormComponent } from './components/admin-panel/add-animal-form
     MatProgressSpinnerModule,
     MatGridListModule,
     MatTableModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

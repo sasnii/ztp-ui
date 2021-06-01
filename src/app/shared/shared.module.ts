@@ -11,11 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { EditAnimalModalComponent } from './components/edit-animal-modal/edit-animal-modal.component';
 
 @NgModule({
   declarations: [
     AnimalCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    EditAnimalModalComponent
   ],
   imports: [
     RouterModule,

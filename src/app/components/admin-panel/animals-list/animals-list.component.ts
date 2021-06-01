@@ -1,3 +1,4 @@
+import { ModalService } from './../../../services/modal.service';
 import { Component, OnInit } from '@angular/core';
 import { selectAnimalsList, selectAnimalsIsLoading } from './../../../selectors/animals.selector';
 import { AppState } from './../../../models/state/state';
@@ -18,14 +19,23 @@ export class AnimalsListComponent implements OnInit {
   animals$: Observable<Animal[]>;
   isLoading$: Observable<boolean>;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>, private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.animals$ = this.store.select(selectAnimalsList);
     this.isLoading$ = this.store.select(selectAnimalsIsLoading);
   }
 
-  deleteAnimal(id: number): void{
-    this.store.dispatch(deleteAnimal({id}));
+  deleteAnimal(id: number): void {
+    this.store.dispatch(deleteAnimal({ id }));
+  }
+
+  editAnimal(animal): void {
+    this.modalService.open(animal);
+    this.modalService.confirmed().subscribe(confirmed => {
+      if (confirmed) {
+        console.log(confirmed, 'return');
+      }
+    });
   }
 }

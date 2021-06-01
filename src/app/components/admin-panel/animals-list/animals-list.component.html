@@ -24,7 +24,7 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="primary" (click)="editAnimal(element.id)">Edit animal</button>
+      <button mat-raised-button color="primary" (click)="editAnimal(element)">Edit animal</button>
       <button mat-raised-button color="warn" (click)="deleteAnimal(element.id)">Delete animal</button>
     </td>
   </ng-container>
