@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="animals$ | async" class="mat-elevation-z8">
   <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> Id. </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <th mat-header-cell *matHeaderCellDef> # </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="name">
@@ -9,14 +9,22 @@
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  <!-- <ng-container matColumnDef="url">
+    <th mat-header-cell *matHeaderCellDef> Url </th>
+    <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+  </ng-container> -->
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="primary" (click)="editAnimal(element.id)">Edit animal</button>
+      <button mat-raised-button color="warn" (click)="deleteAnimal(element.id)">Delete animal</button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

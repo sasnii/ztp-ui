@@ -14,8 +14,7 @@ export class AddAnimalFormComponent implements OnInit {
     this.form = this.fb.group({
       name: [''],
       city: [''],
-      username: ['', Validators.email],
-      password: ['', Validators.required]
+      url: ['', ]
     });
   }
 

@@ -12,7 +12,7 @@ import { Animal } from 'src/app/models/animal';
 })
 export class AnimalsListComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'description', 'action'];
 
   animals$: Observable<Animal[]>;
   isLoading$: Observable<boolean>;
