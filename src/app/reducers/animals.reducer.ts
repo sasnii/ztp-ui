@@ -1,5 +1,22 @@
-import { AnimalsState } from '../models/state/animal';
-import { createReducer } from '@ngrx/store';
+import {
+  loadAnimalList,
+  loadAnimalListSuccess,
+  loadAnimalListFailed,
+  addAnimal,
+  addAnimalSuccess,
+  addAnimalFailed,
+  updateAnimal,
+  updateAnimalSuccess,
+  updateAnimalFailed,
+  deleteAnimal,
+  deleteAnimalSuccess,
+  deleteAnimalFailed,
+  deleteAllAnimals,
+  deleteAllAnimalsSuccess,
+  deleteAllAnimalsFailed
+} from './../actions/animals.actions';
+import { AnimalsState } from './../models/state/animal';
+import { createReducer, on } from '@ngrx/store';
 
 
 export const initialState: AnimalsState = {
@@ -34,4 +51,12 @@ export const initialState: AnimalsState = {
 
 export const animalReducer = createReducer(
   initialState,
+  on(loadAnimalList, state => ({ ...state, isLoading: false })), // TODO: change to true
+  on(loadAnimalListSuccess, (state, { animals }) => ({ ...state, animals, isLoading: false })), // TODO: delete ...state
+  on(loadAnimalListFailed, state => ({ ...state, isLoading: false })),
+
+  on(addAnimal, (state, {animal}) => ({ ...state, animals: [...state.animals, animal] })),
+  on(updateAnimal, (state, {id, animal}) => ({ ...state, animals: state.animals.map(n => n.id === id ? animal : n) })),
+  on(deleteAnimal, (state, {id}) => ({ ...state, animals: state.animals.filter(n => n.id !== id) })),
+  on(deleteAllAnimals, (state) => ({ ...state, animals: [] })),
 );

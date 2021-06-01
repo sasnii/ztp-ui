@@ -1,4 +1,6 @@
+<mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
 <table mat-table [dataSource]="animals$ | async" class="mat-elevation-z8">
+
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef> # </th>
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>

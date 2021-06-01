@@ -6,5 +6,5 @@ export const initialState: UserState = {
 };
 
 export const userReducer = createReducer(
-  initialState,
+  initialState
 );

@@ -35,7 +35,7 @@ export class AnimalsService {
     return this.http.delete(baseUrl);
   }
 
-  findByName(name: string): Observable<any> {
+  getByName(name: string): Observable<any> {
     return this.http.get(`${baseUrl}?name=${name}`);
   }
 }

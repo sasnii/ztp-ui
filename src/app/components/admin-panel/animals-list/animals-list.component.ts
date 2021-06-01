@@ -4,6 +4,7 @@ import { AppState } from './../../../models/state/state';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Animal } from 'src/app/models/animal';
+import { deleteAnimal } from 'src/app/actions/animals.actions';
 
 @Component({
   selector: 'app-animals-list',
@@ -24,4 +25,7 @@ export class AnimalsListComponent implements OnInit {
     this.isLoading$ = this.store.select(selectAnimalsIsLoading);
   }
 
+  deleteAnimal(id: number): void{
+    this.store.dispatch(deleteAnimal({id}));
+  }
 }

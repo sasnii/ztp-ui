@@ -1,3 +1,4 @@
+<mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
 <div *ngFor="let animal of animals$ | async" class="animal-cards">
   <app-animal-card [animal]="animal"></app-animal-card>
 </div>
