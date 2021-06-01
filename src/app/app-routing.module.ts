@@ -1,3 +1,4 @@
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignUpComponent
+  },
+  {
+    path: 'admin',
+    component: AdminPanelComponent
   },
   {
     path: '',

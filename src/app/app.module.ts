@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -24,7 +25,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
+import { AnimalsListComponent } from './components/admin-panel/animals-list/animals-list.component';
+import { AddAnimalFormComponent } from './components/admin-panel/add-animal-form/add-animal-form.component';
+
 
 
 @NgModule({
@@ -32,7 +37,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    SignUpComponent
+    SignUpComponent,
+    AdminPanelComponent,
+    AnimalsListComponent,
+    AddAnimalFormComponent
   ],
   imports: [
     SharedModule,
@@ -58,8 +66,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MatGridListModule
-
+    MatGridListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
