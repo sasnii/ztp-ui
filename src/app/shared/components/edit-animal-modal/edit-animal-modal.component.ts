@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -10,8 +11,17 @@ import { Animal } from 'src/app/models/animal';
 })
 export class EditAnimalModalComponent {
 
+  form: FormGroup;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: Animal,
-              private mdDialogRef: MatDialogRef<EditAnimalModalComponent>) { }
+              private mdDialogRef: MatDialogRef<EditAnimalModalComponent>,
+              private fb: FormBuilder) {
+    this.form = this.fb.group({
+      name: [this.data.name],
+      description: [this.data.description],
+      url: [this.data.url]
+    });
+  }
 
   public cancel(): void {
     this.close(false);
@@ -20,12 +30,13 @@ export class EditAnimalModalComponent {
   close(value): void {
     this.mdDialogRef.close(value);
   }
+
   confirm(): void {
     this.close(true);
   }
+
   @HostListener('keydown.esc')
   onEsc(): void {
     this.close(false);
   }
-
 }
