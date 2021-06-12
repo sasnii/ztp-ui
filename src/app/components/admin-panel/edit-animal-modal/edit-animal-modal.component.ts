@@ -37,7 +37,13 @@ export class EditAnimalModalComponent {
 
   confirm(): void {
     this.close(true);
-    this.store.dispatch(updateAnimal({id: this.data.id, animal: {...this.data, name: 'Test'}}));
+    this.store.dispatch(updateAnimal({id: this.data.id, animal:
+    {
+      ...this.data,
+      name: this.form.controls.name.value,
+      description: this.form.controls.description.value,
+      image: this.form.controls.image.value
+    }}));
   }
 
   @HostListener('keydown.esc')

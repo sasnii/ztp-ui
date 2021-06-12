@@ -14,8 +14,7 @@ export class AnimalsService {
   options = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Token ' + '25eec4dfa9512d645086bf8d199ded63a63e5b77',
-      // 'Access-Control-Allow-Origin': '*'
+      'Authorization': 'Token ' + '25eec4dfa9512d645086bf8d199ded63a63e5b77'
     })
   };
 
