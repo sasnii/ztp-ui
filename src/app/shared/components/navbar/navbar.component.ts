@@ -1,4 +1,7 @@
+import { selectUserIsLoggedIn } from './../../../selectors/users.selector';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private store: Store) {
+    this.isLoggedIn$ = this.store.select(selectUserIsLoggedIn);
+   }
 
   ngOnInit(): void {
   }

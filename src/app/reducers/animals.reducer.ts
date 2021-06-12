@@ -30,11 +30,11 @@ export const animalReducer = createReducer(
   on(loadAnimalListSuccess, (state, { animals }) => ({ ...state, animals, isLoading: false })),
   on(loadAnimalListFailed, state => ({ ...state, isLoading: false })),
 
-  on(addAnimal, (state, { animal }) => ({ ...state, animals: [...state.animals, animal] })),
+  on(addAnimalSuccess, (state, { animal }) => ({ ...state, animals: [...state.animals, animal] })),
 
-  on(updateAnimal, (state, { id, animal }) => ({ ...state, animals: state.animals.map(n => n.id === id ? animal : n) })),
+  on(updateAnimalSuccess, (state, { id, animal }) => ({ ...state, animals: state.animals.map(n => n.id === id ? animal : n) })),
 
-  on(deleteAnimal, (state, { id }) => ({ ...state, animals: state.animals.filter(n => n.id !== id) })),
+  on(deleteAnimalSuccess, (state, { id }) => ({ ...state, animals: state.animals.filter(n => n.id !== id) })),
 
   on(deleteAllAnimals, (state) => ({ ...state, animals: [] })),
 );

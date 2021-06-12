@@ -39,7 +39,7 @@ export class AnimalsEffects {
     ofType(addAnimal),
     switchMap(action => this.animalsService.create(action.animal)
       .pipe(
-        map(response => (addAnimalSuccess(response))),
+        map(response => (addAnimalSuccess({animal: response as Animal}))),
         catchError((error) => of(addAnimalFailed(error)))
       )
     )
@@ -49,7 +49,7 @@ export class AnimalsEffects {
     ofType(deleteAnimal),
     switchMap(action => this.animalsService.deleteById(action.id)
       .pipe(
-        map(response => (deleteAnimalSuccess(response))),
+        map(() => (deleteAnimalSuccess({id : action.id}))),
         catchError((error) => of(deleteAllAnimalsFailed(error)))
       )
     )
@@ -60,7 +60,7 @@ export class AnimalsEffects {
     ofType(updateAnimal),
     switchMap(action => this.animalsService.update(action.id, action.animal)
       .pipe(
-        map(response => (updateAnimalSuccess(response))),
+        map(response => (updateAnimalSuccess({id: action.id, animal: response as Animal}))),
         catchError((error) => of(updateAnimalFailed(error)))
       )
     )

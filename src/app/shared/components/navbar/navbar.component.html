@@ -1,8 +1,9 @@
 <mat-toolbar color="primary" class="navbar">
-  <span>Schronisko im. Jana Pawła II</span>
+  <span>Tadeusz Kościuszko Shelter</span>
   <button mat-raised-button routerLink="/dashboard">Dashboard</button>
   <button mat-raised-button routerLink="/admin" color="warn">Admin panel</button>
   <span class="space"></span>
-  <button mat-raised-button routerLink="/login">Log in</button>
-  <button mat-raised-button routerLink="/signup">Sign up</button>
+  <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button routerLink="/login">Log in</button>
+  <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button routerLink="/signup">Sign up</button>
+  <button *ngIf="isLoggedIn$ | async" mat-raised-button routerLink="/logout">Logout</button>
 </mat-toolbar>
