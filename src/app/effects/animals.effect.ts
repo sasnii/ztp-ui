@@ -17,11 +17,10 @@ export class AnimalsEffects {
     ofType(loadAnimalList),
     switchMap(() => this.animalsService.getAll()
       .pipe(
-        map(response => (loadAnimalListSuccess(response))),
-        catchError((error) => of(loadAnimalListFailed(error)))
+        map(response => loadAnimalListSuccess(response)),
+        catchError((error) => of(loadAnimalListFailed(error))),
       )
-    ),
-    tap(() => console.log('dzdzdz'))
+    )
   ));
 
   createAnimals$ = createEffect(() => this.actions$.pipe(
@@ -33,8 +32,5 @@ export class AnimalsEffects {
       )
     )
   ));
-
-
-
 
 }

@@ -1,3 +1,5 @@
+import { UserEffect } from './effects/users.effect';
+import { AnimalsEffects } from './effects/animals.effect';
 import { userReducer } from './reducers/user.reducer';
 import { animalReducer } from './reducers/animals.reducer';
 import { SharedModule } from './shared/shared.module';
@@ -18,6 +20,7 @@ import { AddAnimalFormComponent } from './components/admin-panel/add-animal-form
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -50,12 +53,15 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     // NgRx
     StoreModule.forRoot({
       animals: animalReducer,
       user: userReducer
     }),
     EffectsModule.forRoot([
+      AnimalsEffects,
+      UserEffect
     ]),
     StoreDevtoolsModule.instrument(),
     // Angular Material

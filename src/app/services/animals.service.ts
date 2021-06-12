@@ -3,7 +3,7 @@ import { environment } from './../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const baseUrl = environment.API_URL;
+const baseUrl = environment.API_URL + '/animals';
 @Injectable({
   providedIn: 'root'
 })

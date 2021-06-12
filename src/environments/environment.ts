@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'https://app-warehouse-js-backend.herokuapp.com/api/products'
+  API_URL: 'http://localhost:8000/api'
 };
 
 /*

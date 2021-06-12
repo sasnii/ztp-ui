@@ -20,7 +20,7 @@ export class EditAnimalModalComponent {
     this.form = this.fb.group({
       name: [this.data.name],
       description: [this.data.description],
-      url: [this.data.url]
+      image: [this.data.image]
     });
   }
 

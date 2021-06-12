@@ -28,10 +28,13 @@ export class AddAnimalFormComponent implements OnInit {
   addBook(): void {
     if (this.form.valid) {
         const body: Animal = {
-          id: 1,
           name: this.form.get('name')?.value,
+          age: 10, // TODO: add in form
+          weight: '10',
+          height: '10',
           description: this.form.get('description')?.value,
-          url: this.form.get('url')?.value
+          type: 'dog',
+          image: this.form.get('url')?.value // TODO: change variable name
         };
         this.store.dispatch(addAnimal({animal: body}));
     } else {
