@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { register } from 'src/app/actions/user.actions';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,14 +14,14 @@ export class SignUpComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private store: Store) {
+  constructor(private fb: FormBuilder, private store: Store, private userService: UsersService) {
     this.form = this.fb.group({
       firstName: ['First Name'],
       lastName: ['Last Name'],
       email: ['test@test.com', Validators.email],
       username: ['123456', Validators.required],
-      password: ['123456', Validators.required],
-      password2: ['123456', Validators.required]
+      password: ['xdxd123456', Validators.required],
+      password2: ['xdxd123456', Validators.required]
     });
   }
 

@@ -22,10 +22,10 @@ export class UsersService {
   }
 
   login(body): Observable<any> {
-    return this.http.post(`${baseUrl}/login`, body);
+    return this.http.post(`${baseUrl}/users/login`, body);
   }
 
   logout(): Observable<any> {
-    return this.http.get(`${baseUrl}/logout`);
+    return this.http.get(`${baseUrl}/users/logout`);
   }
 }
