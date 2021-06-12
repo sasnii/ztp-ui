@@ -21,12 +21,14 @@ export class ModalService {
     this.dialogRef = this.dialog.open(EditAnimalModalComponent, {
       data: animal
     });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      console.log('ressss', result);
+    });
   }
 
   confirmed(): Observable<any> {
-    return this.dialogRef.afterClosed().pipe(take(1), map(res => {
-      return res;
-    }
-    ));
+    console.log('confirmed method Modal Service')
+    return this.dialogRef.afterClosed().pipe(take(1), map(res => res));
   }
 }

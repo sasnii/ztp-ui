@@ -15,7 +15,8 @@ export class EditAnimalModalComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Animal,
               private mdDialogRef: MatDialogRef<EditAnimalModalComponent>,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              ) {
     this.form = this.fb.group({
       name: [this.data.name],
       description: [this.data.description],
@@ -28,7 +29,7 @@ export class EditAnimalModalComponent {
   }
 
   close(value): void {
-    this.mdDialogRef.close(value);
+    this.mdDialogRef.close('asda');
   }
 
   confirm(): void {
