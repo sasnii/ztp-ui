@@ -1,3 +1,5 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnimalCardComponent } from './components/animal-card/animal-card.component';
@@ -9,13 +11,21 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { EditAnimalModalComponent } from './components/edit-animal-modal/edit-animal-modal.component';
 
 @NgModule({
   declarations: [
-    AnimalCardComponent
+    AnimalCardComponent,
+    NavbarComponent,
+    EditAnimalModalComponent
   ],
   imports: [
+    RouterModule,
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    // Angular Material
     MatToolbarModule,
     MatIconModule,
     MatListModule,
@@ -25,7 +35,8 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule
   ],
   exports: [
-    AnimalCardComponent
+    AnimalCardComponent,
+    NavbarComponent
   ]
 })
 export class SharedModule { }
