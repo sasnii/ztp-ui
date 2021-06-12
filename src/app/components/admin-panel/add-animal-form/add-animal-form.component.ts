@@ -17,9 +17,9 @@ export class AddAnimalFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private store: Store<AppState>, private snackBar: MatSnackBar) {
     this.form = this.fb.group({
-      name: [''],
-      description: [''],
-      url: ['']
+      name: ['test'],
+      description: ['test'],
+      url: ['https://material.angular.io/assets/img/examples/shiba2.jpg']
     });
   }
 
@@ -38,7 +38,6 @@ export class AddAnimalFormComponent implements OnInit {
         };
         this.store.dispatch(addAnimal({animal: body}));
     } else {
-      console.error('Wrong values');
       this.snackBar.open('Wrong values', 'Error');
     }
   }
