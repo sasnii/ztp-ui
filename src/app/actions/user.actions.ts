@@ -9,3 +9,7 @@ export const loginFailed = createAction('[Login page] Login failed', props<{ err
 export const register = createAction('[Register page] Register', props<{ register: Register }>()); // TODO: change any type
 export const registerSuccess = createAction('[Register page] Register successful', props<{response: any}>()); // TODO: change type
 export const registerFailed = createAction('[Register page] Register failed', props<{ error: Error }>());
+
+export const logout = createAction('[Logout navbar] Logout');
+export const logoutSuccess = createAction('[Logout navbar] Logout successful');
+export const logoutFailed = createAction('[Logout navbar] Logout failed', props<{ error: Error }>());

@@ -5,5 +5,5 @@
   <span class="space"></span>
   <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button routerLink="/login">Log in</button>
   <button *ngIf="!(isLoggedIn$ | async)" mat-raised-button routerLink="/signup">Sign up</button>
-  <button *ngIf="isLoggedIn$ | async" mat-raised-button routerLink="/logout">Logout</button>
+  <button *ngIf="isLoggedIn$ | async" mat-raised-button (click)="logout()">Logout</button>
 </mat-toolbar>
