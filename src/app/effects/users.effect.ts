@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, switchMap, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { props } from '@ngrx/store';
-import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserEffect {
-  constructor(private actions$: Actions, private userService: UsersService) { }
+  constructor(
+    private actions$: Actions,
+    private userService: UsersService) { }
 
   registerUser$ = createEffect(() => this.actions$.pipe(
     ofType(register),
@@ -32,5 +32,4 @@ export class UserEffect {
       )
     )
   ));
-
 }

@@ -9,16 +9,14 @@ const baseUrl = environment.API_URL;
 })
 export class UsersService {
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {
     return this.http.get(`${baseUrl}/users`);
   }
 
   register(body): Observable<any> {
-    return this.http.post(`${baseUrl}/users/register`, body, {headers : new HttpHeaders({ 'Content-Type': 'application/json' })});
+    return this.http.post(`${baseUrl}/users/register`, body);
   }
 
   login(body): Observable<any> {

@@ -4,12 +4,12 @@ import { createReducer, on } from '@ngrx/store';
 
 export const initialState: UserState = {
   loggedIn: false,
-  token: null
+  token: null,
+  role: null
 };
 
 export const userReducer = createReducer(
   initialState,
-  on(loginSuccess, (state, {token}) => ({ ...state, loggedIn: true, token})),
-
-  on(logout, state => ({ ...state, loggedIn: false, token: null})),
+  on(loginSuccess, (state, {token, role}) => ({ ...state, loggedIn: true, token, role})),
+  on(logout, state => ({ ...state, loggedIn: false, token: null, role: null})),
 );
