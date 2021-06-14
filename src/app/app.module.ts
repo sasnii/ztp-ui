@@ -1,3 +1,4 @@
+import { ErrorEffects } from './effects/error.effect';
 import { UserEffect } from './effects/users.effect';
 import { AnimalsEffects } from './effects/animals.effect';
 import { userReducer } from './reducers/user.reducer';
@@ -34,6 +35,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { WorkerPanelComponent } from './components/worker-panel/worker-panel.component';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     SignUpComponent,
     AdminPanelComponent,
     AnimalsListComponent,
-    AddAnimalFormComponent
+    AddAnimalFormComponent,
+    WorkerPanelComponent
   ],
   imports: [
     SharedModule,
@@ -61,7 +64,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     }),
     EffectsModule.forRoot([
       AnimalsEffects,
-      UserEffect
+      UserEffect,
+      ErrorEffects
     ]),
     StoreDevtoolsModule.instrument(),
     // Angular Material

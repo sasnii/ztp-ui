@@ -65,15 +65,4 @@ export class AnimalsEffects {
       )
     )
   ));
-
-  // success$ = createEffect(() => this.actions$.pipe(
-  //   ofType(addAnimalSuccess, loadAnimalListSuccess, updateAnimalSuccess, deleteAnimalSuccess),
-  //   tap(action => console.log('Operacja wykonana pomyślnie'))
-  // ));
-
-  // error$ = createEffect(() => this.actions$.pipe(
-  //   ofType(addAnimalFailed, loadAnimalListFailed, updateAnimalFailed, deleteAllAnimalsFailed),
-  //   tap(action => console.log('Operacja wykonana niepomyślnie', action.error))
-  // ));
-
 }
