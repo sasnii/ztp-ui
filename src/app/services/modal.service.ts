@@ -1,4 +1,4 @@
-import { EditAnimalModalComponent } from './../shared/components/edit-animal-modal/edit-animal-modal.component';
+import { EditAnimalModalComponent } from '../components/admin-panel/edit-animal-modal/edit-animal-modal.component';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { Injectable } from '@angular/core';

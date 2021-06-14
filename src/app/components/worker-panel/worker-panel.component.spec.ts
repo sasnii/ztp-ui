@@ -1,22 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Store } from '@ngrx/store';
 
-import { NavbarComponent } from './navbar.component';
+import { WorkerPanelComponent } from './worker-panel.component';
 
-describe('NavbarComponent', () => {
-  let component: NavbarComponent;
-  let fixture: ComponentFixture<NavbarComponent>;
+describe('WorkerPanelComponent', () => {
+  let component: WorkerPanelComponent;
+  let fixture: ComponentFixture<WorkerPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ],
-      providers: [ Store ]
+      declarations: [ WorkerPanelComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarComponent);
+    fixture = TestBed.createComponent(WorkerPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,7 +10,7 @@ export const addAnimalSuccess = createAction('[Animal] Add animal was successful
 export const addAnimalFailed = createAction('[Animal] Add animal failed', props<{ error: Error }>());
 
 export const updateAnimal = createAction('[Animal details] Update animal', props<{ id: number, animal: Animal }>());
-export const updateAnimalSuccess = createAction('[Animal details] Update animal success', props<{ animal: Animal }>());
+export const updateAnimalSuccess = createAction('[Animal details] Update animal success', props<{ id: number, animal: Animal }>());
 export const updateAnimalFailed = createAction('[Animal details] Update animal failed', props<{ error: Error }>());
 
 export const deleteAnimal = createAction('[Animal list] Delete animal', props<{ id: number }>());

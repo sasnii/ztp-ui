@@ -1,5 +1,8 @@
+import { LoginCredentials } from './../../models/loginCredentials';
+import { login } from './../../actions/user.actions';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +12,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   public loginInvalid = false;
-  private returnUrl: string;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private store: Store) {
     this.form = this.fb.group({
-      username: ['', Validators.email],
+      login: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -23,19 +25,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void{
-    // this.loginInvalid = false;
-    // this.formSubmitAttempt = false;
-    // if (this.form.valid) {
-    //   try {
-    //     const username = this.form.get('username')?.value;
-    //     const password = this.form.get('password')?.value;
-    //     await this.authService.login(username, password);
-    //   } catch (err) {
-    //     this.loginInvalid = true;
-    //   }
-    // } else {
-    //   this.formSubmitAttempt = true;
-    // }
+    const body: LoginCredentials = {
+      username: this.form.get('login')?.value,
+      password: this.form.get('password')?.value
+    };
+    this.store.dispatch(login({credential: body }));
   }
-
 }

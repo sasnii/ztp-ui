@@ -1,3 +1,6 @@
+import { ErrorEffects } from './effects/error.effect';
+import { UserEffect } from './effects/users.effect';
+import { AnimalsEffects } from './effects/animals.effect';
 import { userReducer } from './reducers/user.reducer';
 import { animalReducer } from './reducers/animals.reducer';
 import { SharedModule } from './shared/shared.module';
@@ -18,6 +21,7 @@ import { AddAnimalFormComponent } from './components/admin-panel/add-animal-form
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -31,6 +35,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { WorkerPanelComponent } from './components/worker-panel/worker-panel.component';
 
 
 @NgModule({
@@ -41,7 +46,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     SignUpComponent,
     AdminPanelComponent,
     AnimalsListComponent,
-    AddAnimalFormComponent
+    AddAnimalFormComponent,
+    WorkerPanelComponent
   ],
   imports: [
     SharedModule,
@@ -50,12 +56,16 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     // NgRx
     StoreModule.forRoot({
       animals: animalReducer,
       user: userReducer
     }),
     EffectsModule.forRoot([
+      AnimalsEffects,
+      UserEffect,
+      ErrorEffects
     ]),
     StoreDevtoolsModule.instrument(),
     // Angular Material
