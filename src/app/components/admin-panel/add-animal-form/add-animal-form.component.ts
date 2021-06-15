@@ -17,9 +17,13 @@ export class AddAnimalFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private store: Store<AppState>, private snackBar: MatSnackBar) {
     this.form = this.fb.group({
-      name: ['test'],
-      description: ['test'],
-      url: ['https://material.angular.io/assets/img/examples/shiba2.jpg']
+      name: [],
+      age: [],
+      weight: [],
+      height: [],
+      description: [],
+      type: [],
+      image: []
     });
   }
 
@@ -29,12 +33,12 @@ export class AddAnimalFormComponent implements OnInit {
     if (this.form.valid) {
         const body: Animal = {
           name: this.form.get('name')?.value,
-          age: 10, // TODO: add in form
-          weight: '10',
-          height: '10',
+          age: this.form.get('age')?.value,
+          weight: this.form.get('weight')?.value,
+          height: this.form.get('height')?.value,
           description: this.form.get('description')?.value,
-          type: 'dog',
-          image: this.form.get('url')?.value // TODO: change variable name
+          type: this.form.get('type')?.value,
+          image: this.form.get('image')?.value
         };
         this.store.dispatch(addAnimal({animal: body}));
     } else {
