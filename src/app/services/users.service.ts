@@ -21,6 +21,10 @@ export class UsersService {
     return this.http.get(`${baseUrl}/users`, this.getOptions());
   }
 
+  updateUserById(id, body): Observable<any> {
+    return this.http.put(`${baseUrl}/users/${id}`, body, this.getOptions());
+  }
+
   register(body): Observable<any> {
     return this.http.post(`${baseUrl}/users/register`, body);
   }

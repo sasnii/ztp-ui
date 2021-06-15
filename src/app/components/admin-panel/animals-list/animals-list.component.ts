@@ -31,11 +31,6 @@ export class AnimalsListComponent implements OnInit {
   }
 
   editAnimal(animal): void {
-    this.modalService.open(animal);
-    this.modalService.confirmed().subscribe(confirmed => {
-      if (confirmed) {
-        console.log(confirmed, 'return');
-      }
-    });
+    this.modalService.openAnimalModal(animal);
   }
 }

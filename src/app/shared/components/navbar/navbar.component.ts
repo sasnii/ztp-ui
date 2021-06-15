@@ -1,6 +1,6 @@
 import { selectUserIsLoggedIn, selectUserRole } from './../../../selectors/users.selector';
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { logout } from 'src/app/actions/user.actions';
 
@@ -9,7 +9,7 @@ import { logout } from 'src/app/actions/user.actions';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent{
 
   isLoggedIn$: Observable<boolean>;
   userRole$: Observable<number>;
@@ -19,11 +19,8 @@ export class NavbarComponent implements OnInit {
     this.userRole$ = this.store.select(selectUserRole);
    }
 
-  ngOnInit(): void {
-  }
 
   logout(): void {
-    console.log('logout button')
     this.store.dispatch(logout());
   }
 

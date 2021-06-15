@@ -38,6 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { WorkerPanelComponent } from './components/worker-panel/worker-panel.component';
 import { UsersListComponent } from './components/admin-panel/users-list/users-list.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { EditUserModalComponent } from './components/admin-panel/edit-user-modal/edit-user-modal.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     AnimalsListComponent,
     AddAnimalFormComponent,
     WorkerPanelComponent,
-    UsersListComponent
+    UsersListComponent,
+    EditUserModalComponent
   ],
   imports: [
     SharedModule,

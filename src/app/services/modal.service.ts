@@ -1,9 +1,11 @@
+import { EditUserModalComponent } from './../components/admin-panel/edit-user-modal/edit-user-modal.component';
 import { EditAnimalModalComponent } from '../components/admin-panel/edit-animal-modal/edit-animal-modal.component';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Animal } from '../models/animal';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,24 +13,22 @@ import { Animal } from '../models/animal';
 export class ModalService {
 
   constructor(private dialog: MatDialog) { }
-  dialogRef: MatDialogRef<EditAnimalModalComponent>;
+  dialogRefAnimal: MatDialogRef<EditAnimalModalComponent>;
+  dialogRefUser: MatDialogRef<EditUserModalComponent>;
 
-  log(value: string): void {
-    console.log(value);
-  }
-
-  open(animal: Animal): void {
-    this.dialogRef = this.dialog.open(EditAnimalModalComponent, {
+  openAnimalModal(animal: Animal): void {
+    this.dialogRefAnimal = this.dialog.open(EditAnimalModalComponent, {
       data: animal
     });
 
-    this.dialogRef.afterClosed().subscribe(result => {
+    this.dialogRefAnimal.afterClosed().subscribe(result => {
       console.log('ressss', result);
     });
   }
 
-  confirmed(): Observable<any> {
-    console.log('confirmed method Modal Service')
-    return this.dialogRef.afterClosed().pipe(take(1), map(res => res));
+  openUserModal(user: User): void {
+    this.dialogRefUser = this.dialog.open(EditUserModalComponent, {
+      data: user
+    });
   }
 }

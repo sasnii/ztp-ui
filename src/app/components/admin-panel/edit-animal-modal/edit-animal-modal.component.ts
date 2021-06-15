@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Animal } from 'src/app/models/animal';
 import { Store } from '@ngrx/store';
 import { updateAnimal } from 'src/app/actions/animals.actions';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-edit-animal-modal',
@@ -32,11 +33,12 @@ export class EditAnimalModalComponent {
   }
 
   close(value): void {
-    this.mdDialogRef.close('asda');
+    this.mdDialogRef.close('return');
   }
 
   confirm(): void {
-    this.close(true);
+    console.log('confirm animal');
+    this.close(false);
     this.store.dispatch(updateAnimal({id: this.data.id, animal:
     {
       ...this.data,

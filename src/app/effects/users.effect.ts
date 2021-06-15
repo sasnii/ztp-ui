@@ -1,6 +1,19 @@
 import { User } from './../models/user';
 import { UsersService } from './../services/users.service';
-import { register, registerFailed, registerSuccess, login, loginSuccess, loginFailed, loadUserList, loadUserListSuccess, loadUserListFailed } from './../actions/user.actions';
+import {
+  register,
+  registerFailed,
+  registerSuccess,
+  login,
+  loginSuccess,
+  loginFailed,
+  loadUserList,
+  loadUserListSuccess,
+  loadUserListFailed,
+  updateUser,
+  updateUserSuccess,
+  updateUserFailed
+} from './../actions/user.actions';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, switchMap, map, tap } from 'rxjs/operators';
@@ -40,6 +53,16 @@ export class UserEffect {
       .pipe(
         map(response => loadUserListSuccess({ users: response as User[] })),
         catchError((error) => of(loadUserListFailed(error)))
+      )
+    )
+  ));
+
+  editUser$ = createEffect(() => this.actions$.pipe(
+    ofType(updateUser),
+    switchMap(action => this.userService.updateUserById(action.id, action.user)
+      .pipe(
+        map(response => (updateUserSuccess({id: action.id, user: response as User}))),
+        catchError((error) => of(updateUserFailed(error)))
       )
     )
   ));

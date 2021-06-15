@@ -1,0 +1,19 @@
+<div class="header">
+  <h1 mat-dialog-title>Update user role</h1>
+</div>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Role" formControlName="role">
+    </mat-form-field>
+  </form>
+</div>
+1 - Admin
+<br/>
+2 - Worker
+<br/>
+3 - User
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="confirmUser()">Update</button>
+</div>
