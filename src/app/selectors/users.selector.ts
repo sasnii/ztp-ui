@@ -16,3 +16,7 @@ export const selectUserRole = createSelector(
   selectUser, (state: UserState) => state.role
 );
 
+export const selectUserList = createSelector(
+  selectUser, (state: UserState) => state.users
+);
+

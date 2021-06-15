@@ -36,7 +36,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { WorkerPanelComponent } from './components/worker-panel/worker-panel.component';
-
+import { UsersListComponent } from './components/admin-panel/users-list/users-list.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { WorkerPanelComponent } from './components/worker-panel/worker-panel.com
     AdminPanelComponent,
     AnimalsListComponent,
     AddAnimalFormComponent,
-    WorkerPanelComponent
+    WorkerPanelComponent,
+    UsersListComponent
   ],
   imports: [
     SharedModule,
@@ -80,7 +82,8 @@ import { WorkerPanelComponent } from './components/worker-panel/worker-panel.com
     MatGridListModule,
     MatTableModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

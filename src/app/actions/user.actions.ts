@@ -13,3 +13,7 @@ export const registerFailed = createAction('[Register page] Register failed', pr
 export const logout = createAction('[Logout navbar] Logout');
 export const logoutSuccess = createAction('[Logout navbar] Logout successful');
 export const logoutFailed = createAction('[Logout navbar] Logout failed', props<{ error: Error }>());
+
+export const loadUserList = createAction('[Admin dashboard] Load User List');
+export const loadUserListSuccess = createAction('[Admin dashboard] Load user list success', props<{ users: any }>());
+export const loadUserListFailed = createAction('[Admin dashboard] Load user list failed', props<{ error: Error }>());

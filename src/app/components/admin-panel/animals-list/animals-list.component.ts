@@ -14,7 +14,7 @@ import { deleteAnimal } from 'src/app/actions/animals.actions';
 })
 export class AnimalsListComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'description', 'action'];
+  displayedColumns: string[] = ['position', 'name', 'age', 'weight', 'description', 'type', 'action'];
 
   animals$: Observable<Animal[]>;
   isLoading$: Observable<boolean>;
