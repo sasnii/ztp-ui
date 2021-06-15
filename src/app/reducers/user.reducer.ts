@@ -3,9 +3,9 @@ import { UserState } from './../models/state/user';
 import { createReducer, on } from '@ngrx/store';
 
 export const initialState: UserState = {
-  loggedIn: true,
-  token: '25eec4dfa9512d645086bf8d199ded63a63e5b77',
-  role: 1,
+  loggedIn: false,
+  token: null,
+  role: null,
   users: null
 };
 

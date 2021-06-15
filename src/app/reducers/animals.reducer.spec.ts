@@ -5,17 +5,6 @@ import * as actions from './../actions/animals.actions';
 
 
 fdescribe('Animals reducer', () => {
-  function createAnimal(index: number): Animal {
-    return {
-      id: index,
-      name: 'name' + index,
-      age: index,
-      weight: '10',
-      height: '10',
-      description: 'description' + index,
-      type: 'dog'
-    };
-  }
 
   it('should return initial state when state is undefined', () => {
     const state = animalReducer(undefined, { type: '' });
@@ -69,6 +58,79 @@ fdescribe('Animals reducer', () => {
         animal: expetedItems
       }));
       expect(state.animals).toEqual([expetedItems]);
+    });
+  });
+
+  describe('when updating animal', () => {
+    it('should update animal in store', () => {
+      const expetedItems: Animal = {
+        id: 1,
+        name: 'updated',
+        age: 10,
+        weight: '10',
+        height: '10',
+        description: 'description',
+        type: 'dog'
+      };
+      const state = animalReducer({
+        animals: [{
+          id: 1,
+          name: 'name',
+          age: 10,
+          weight: '10',
+          height: '10',
+          description: 'description',
+          type: 'dog'
+        }],
+        isLoading: true
+      }, actions.updateAnimalSuccess({ id: 1, animal: expetedItems}));
+      expect(state.animals).toEqual([expetedItems]);
+    });
+  });
+
+
+  describe('when deleting animal', () => {
+    it('should delete animal from store', () => {
+      const state = animalReducer({
+        animals: [{
+          id: 1,
+          name: 'name',
+          age: 10,
+          weight: '10',
+          height: '10',
+          description: 'description',
+          type: 'dog'
+        }],
+        isLoading: true
+      }, actions.deleteAnimalSuccess({ id: 1 }));
+      expect(state.animals).toEqual([]);
+    });
+  });
+
+  describe('when deleting all animals', () => {
+    it('should clear the store', () => {
+      const state = animalReducer({
+        animals: [{
+          id: 1,
+          name: 'name',
+          age: 10,
+          weight: '10',
+          height: '10',
+          description: 'description',
+          type: 'dog'
+        },
+        {
+          id: 1,
+          name: 'name',
+          age: 10,
+          weight: '10',
+          height: '10',
+          description: 'description',
+          type: 'dog'
+        }],
+        isLoading: true
+      }, actions.deleteAllAnimals());
+      expect(state.animals).toEqual([]);
     });
   });
 
