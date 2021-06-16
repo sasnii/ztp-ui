@@ -1,29 +1,28 @@
-import { loginFailed, registerFailed, loginSuccess, registerSuccess, logoutSuccess } from './../actions/user.actions';
+import { loginFailed, registerFailed, loginSuccess, registerSuccess, logoutSuccess, logout } from './../actions/user.actions';
 import { deleteAllAnimalsFailed, deleteAnimalFailed, loadAnimalListFailed, updateAnimalFailed } from './../actions/animals.actions';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { addAnimalFailed, addAnimalSuccess, deleteAnimalSuccess, loadAnimalListSuccess, updateAnimalSuccess } from '../actions/animals.actions';
 import { tap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorEffects {
-  constructor(private actions$: Actions, private snackBar: MatSnackBar) { }
+  constructor(private actions$: Actions, private snackBar: MatSnackBar, private router: Router) { }
 
   success$ = createEffect(
     () => this.actions$.pipe(
       ofType(
-        // addAnimalSuccess,
-        // loadAnimalListSuccess,
-        // updateAnimalSuccess,
-        // deleteAnimalSuccess,
         loginSuccess,
         registerSuccess,
         logoutSuccess
       ),
-      tap(action => this.snackBar.open((action.type), 'Success')),
+      tap(action => this.snackBar.open((action.type), 'Success', {
+        duration: 3000
+      })),
     ),
     { dispatch: false }
   );
@@ -39,7 +38,23 @@ export class ErrorEffects {
         loginFailed,
         registerFailed
         ),
-      tap(action => this.snackBar.open((action.error.message || action.error.name), 'Error')),
+      tap(action => this.snackBar.open((action.error.message || action.error.name), 'Error', {
+        duration: 3000
+      })),
+    ),
+    { dispatch: false }
+  );
+
+
+  logout$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(
+        logout
+      ),
+      tap(() => this.router.navigateByUrl('/')),
+      // tap(action => this.snackBar.open((action.type), 'Success', {
+      //   duration: 3000
+      // })),
     ),
     { dispatch: false }
   );

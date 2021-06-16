@@ -27,7 +27,9 @@ export class AddAnimalFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+  }
 
   addBook(): void {
     if (this.form.valid) {
@@ -42,7 +44,9 @@ export class AddAnimalFormComponent implements OnInit {
         };
         this.store.dispatch(addAnimal({animal: body}));
     } else {
-      this.snackBar.open('Wrong values', 'Error');
+      this.snackBar.open('Wrong values', 'Error', {
+        duration: 3000
+      });
     }
   }
 

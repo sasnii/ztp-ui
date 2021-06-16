@@ -33,4 +33,13 @@ export class AnimalsListComponent implements OnInit {
   editAnimal(animal): void {
     this.modalService.openAnimalModal(animal);
   }
+
+  truncateDescription(value: string): string{
+    if(value.length > 25){
+      return value.substring(0, 20) + '...';
+    }
+    else {
+      return value;
+    }
+  }
 }

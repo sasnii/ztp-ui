@@ -3,7 +3,7 @@ import { User } from 'src/app/models/user';
 import { initialState, userReducer } from './user.reducer';
 
 
-fdescribe('Animals reducer', () => {
+fdescribe('User reducer', () => {
 
   it('should return initial state when state is undefined', () => {
     const state = userReducer(undefined, { type: '' });

@@ -23,7 +23,11 @@ export class EditAnimalModalComponent {
               ) {
     this.form = this.fb.group({
       name: [this.data.name],
+      age: [this.data.age],
+      weight: [this.data.weight],
+      height: [this.data.height],
       description: [this.data.description],
+      type: [this.data.type],
       image: [this.data.image]
     });
   }
@@ -43,7 +47,11 @@ export class EditAnimalModalComponent {
     {
       ...this.data,
       name: this.form.controls.name.value,
+      age: this.form.controls.age.value,
+      weight: this.form.controls.weight.value,
+      height: this.form.controls.height.value,
       description: this.form.controls.description.value,
+      type: this.form.controls.type.value,
       image: this.form.controls.image.value
     }}));
   }
