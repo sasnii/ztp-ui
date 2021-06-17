@@ -5,10 +5,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Quick run
 
-Run `npm install` to install all node modules. It may take a while.
-Run `npm run start` to compile aplication.
-Then application will be hosted on `localhost:4200`
-To run unit test run `npm run test`
+* Run `npm install` to install all node modules. It may take a while.
+* Run `npm run start` to compile aplication.
+* Then application will be hosted on `localhost:4200`
+* To run unit test run `npm run test`
 
 ## Development server
 
